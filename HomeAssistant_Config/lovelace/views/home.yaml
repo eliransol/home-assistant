@@ -18,12 +18,10 @@ cards:
             - type: custom:decluttering-card
               template: parent_person
               variables:
-                - name: life360_eliran_solomon
+                - name: life360_eliran
                 - image: /local/lovelace/family/eliran.jpg
                 - prefix: 'Eliran -- '
                 - battery_sensor: sensor.eliran_battery
-                #- ituran: ituran.
-                #- mail_sensor: sensor._gmail_com
 
 
 #################################################################
@@ -36,12 +34,11 @@ cards:
               #template: child_person
               template: parent_person
               variables:
-                - name: life360_maya_solomon
+                - name: life360_maya
                 - image: /local/lovelace/family/maya.jpg
                 - prefix: 'Maya -- '
                 - battery_sensor: sensor.maya_battery
-                #- ituran: ituran.
-                #- mail_sensor: sensor._gmail_com
+
 
 #################################################################
 #                                                               #
@@ -65,7 +62,7 @@ cards:
               direction: channel                
 
             entities:
-              - calendar.eliran_solomon_gmail_com
+              - calendar.eliran_secret_gmail_com
               - calendar.khgym_byshrl #חגים 
 
 #################################################################

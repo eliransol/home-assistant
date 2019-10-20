@@ -446,26 +446,4 @@ cards:
             variables:
                 - entity: sensor.hass_db_size
                 - name: DB Size
-                - icon: mdi:database  
-
-#              - type: horizontal-stack
-#                cards:
-#                  - type: horizontal-stack
-#                    cards:
-#                      - type: custom:decluttering-card
-#                        template: database_graph
-#                        variables:
-#                            - entity: sensor.hass_db_size
-#                            - name: Events
-#                            - icon: mdi:database  
-#                            - color: orange
-                            
-#                      - type: custom:decluttering-card
-#                        template: database_graph
-#                        variables:
-#                            - entity: sensor.hass_db_size
-#                            - name: States
-#                            - icon: mdi:database
-#                            - color: green
-          # - type: "custom:button-card"
-          #   color_type: blank-card   
+                - icon: mdi:database 
