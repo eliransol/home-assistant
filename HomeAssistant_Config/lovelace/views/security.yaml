@@ -1,0 +1,214 @@
+title: Man Security
+path: man-security
+icon: mdi:shield-home
+cards:
+#################################################################
+#                                                               #
+#   Smoke Alarm                                                 #
+#                                                               #
+#################################################################
+
+#  - type: vertical-stack
+#    cards:
+#      - type: custom:decluttering-card
+#        template: title_template
+#        variables:
+#          - name: "Smoke Detectors"
+ 
+#      - type: entities
+#        entities:
+#          - binary_sensor.smoke_sensor_158d00028ee7fb 
+
+#################################################################
+#                                                               #
+#   Washer and Dryer                                            #
+#                                                               #
+#################################################################
+
+#      - type: vertical-stack
+#        cards:
+#          - type: custom:decluttering-card
+#            template: title_template
+#            variables:
+#              - name: "Laundry"     
+#          - type: horizontal-stack
+#            cards:
+#              - type: 'custom:decluttering-card'
+#                template: laundry 
+#                variables:
+#                  - image: washingmachine.jpg
+#                  - entity_status: washing_machine_state
+#                  - entity: washing_machine
+#                  - entity_energy: washing_machine_power
+#                  - entity_energy_today: washing_machine_yesterday
+
+#          - type: custom:mini-graph-card
+#            name: Washing Machine Consumption
+#            entities: 
+#              - entity: sensor.washing_machine_power
+#                name: Washer
+#                show_state: true
+#                unit: 'W'
+#            icon: mdi:flash
+#            height: 40
+#            line_color: '#3498db'
+#            line_width: 2
+#            font_size: 70
+#            hours_to_show: 72
+#            points_per_hour: 1
+#            show:
+#              extrema: true
+#              fill: true
+
+#################################################################
+#                                                               #
+#   Door Status                                                 #
+#                                                               #
+#################################################################
+
+  - type: vertical-stack
+    cards:       
+      - type: entities
+        #title: Smoke Detectors
+        show_header_toggle: false
+        entities:
+          - type: divider
+          - type: 'custom:text-divider-row'
+            text: Door / Window Sensors
+          - type: divider
+          - binary_sensor.door_window_sensor_158d00028b434a
+          - binary_sensor.door_window_sensor_158d0002b5b57f
+          - binary_sensor.door_window_sensor_158d0002b832e7
+
+#################################################################
+#                                                               #
+#   Alarm                                                       #
+#                                                               #
+#################################################################
+
+
+        
+  - type: vertical-stack
+    cards:       
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - type: divider # is line up text
+          - type: 'custom:text-divider-row'
+            text: Alarm
+          - type: divider # is line down text
+          #- type: section
+          - type: custom:card-modder
+            card:
+              type: picture-elements
+              image: /local/lovelace/security/alarm_3.jpg
+              elements:
+                - style:
+                    color: white
+                    top: 88%
+                    left: 15%
+                  type: state-icon
+                  entity: alarm_control_panel.house
+                - prefix: 'Alarm: '
+                  type: state-label
+                  style:
+                    color: white
+                    top: 88%
+                    left: 32%
+                  entity: alarm_control_panel.house
+
+
+
+## space
+  - type: vertical-stack
+    cards:
+      - type: custom:gap-card
+        height: 1
+        width: 1
+
+
+#################################################################
+#                                                               #
+#    Door Air Conditioner                                       #
+#                                                               #
+#################################################################
+
+#      - type: custom:decluttering-card
+#        template: title_template
+#        variables:
+#          - name: "Air Conditioner"
+
+#      - type: entities
+#        entities:
+#            - binary_sensor.door_window_sensor_158d0002ea866a
+
+#      - type: picture-glance
+#        title: Air Conditioner Yakir
+#        tap_action: toggle
+#        entities:
+#          - switch.ac_yakir
+#        image: /local/lovelace/switch/Air-Conditioner-yakri.jpg
+
+#################################################################
+#                                                               #
+#   Dog Walk                                                    #
+#                                                               #
+#################################################################
+
+
+#      - type: entities
+#        entities:
+#          - timer.dogwalk
+#        state_filter:
+#          - 'active'
+
+#################################################################
+#                                                               #
+#   Motion Sensor                                               #
+#                                                               #
+#################################################################
+
+  - type: vertical-stack
+    cards:       
+      - type: entities
+        #title: Smoke Detectors
+        show_header_toggle: false
+        entities:
+          - type: divider # is line up text
+          - type: 'custom:text-divider-row'
+            text: Motion Sensors
+          - type: divider # is line down text
+          - binary_sensor.motion_sensor_158d00036ba01e
+          - binary_sensor.ring_front_door_motion
+
+#################################################################
+#                                                               #
+#   Last IP Login                                               #
+#                                                               #
+#################################################################
+
+#      - type: custom:decluttering-card
+#        template: title_template
+#        variables:
+#          - name: "IP Address Tracking"
+
+#      - type: entities
+#        entities:
+#          - entity: sensor.myip
+#            name: My IP address is
+#            icon: mdi:ip-network
+        
+#      - type: entities
+#        entities:
+#          - type: custom:bar-card
+#            title_position: inside
+#            align: center
+#            padding: 4px
+#            card_style: 
+#              border-radius: 5px
+#            columns: 2
+#            entities:
+#              - entity: sensor.last_successful_authentication
+#                title: Last successful
+#              - entity: sensor.authentication_known_ip_info
+#                title: Known iP info              

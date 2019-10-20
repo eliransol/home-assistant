@@ -1,0 +1,60 @@
+title: Light
+path: light
+icon: mdi:lightbulb-on
+cards:
+  - type: vertical-stack
+    cards:       
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - type: 'custom:text-divider-row'
+            text: תאורה
+          - type: section
+            label: סלון
+          - name: מנורה ראשונה
+            entity: switch.living_room_one_light
+          - name: מנורה שניה
+            entity: switch.living_room_two_light
+          - name: תאורת אווירה
+            entity: light.yeelight_color1_7811dcd9281d
+          - name: תאורת אזעקה
+            entity: light.gateway_light_7c49eb1d1fe2
+
+          - type: section
+            label: מטבח
+          - name: מטבח
+            entity: switch.kitchen_main_light
+          - name: בר
+            entity: switch.kitchen_bar_light
+          - name: פינת אוכל
+            entity: switch.food_area_light
+
+          - type: section
+            label: חדרים
+          - name: חדר הורים
+            entity: switch.parents_room_light
+          - name: חדר נועה
+            entity: switch.game_room_light
+          - name: חדר רז
+            entity: switch.noa_room_light
+            
+          - type: section
+            label: מעבר
+          - name: מעבר
+            entity: switch.mavar_light
+
+          - type: section
+            label: מקלחת
+          - name: מקלחת
+            entity: switch.bathroom_main_light
+          - name: ספוטים
+            entity: switch.bathroom_spot_light
+          - name: כביסה
+            entity: switch.bathroom_laundry_light
+            
+          - type: section
+            label: תאורת חוץ
+          - name: כניסה קדמית
+            entity: switch.outside_entry_light
+          - name: חצר קדמית
+            entity: light.front_garden_lights

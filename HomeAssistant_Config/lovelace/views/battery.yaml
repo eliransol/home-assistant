@@ -1,0 +1,423 @@
+title: battery
+path: battery
+icon: mdi:battery-charging-100
+cards:
+
+############################################################################
+#                                                                          #
+#   Titel Xiaomi Motion Sensors Battery                                    #
+#                                                                          #
+############################################################################
+
+  - type: vertical-stack
+    cards:
+    
+      - type: entities
+        show_header_toggle: false
+        entities:
+
+          - type: 'custom:text-divider-row'
+            text: Xiaomi Motion Sensors Battery
+          - type: section
+
+          - type: custom:vertical-stack-in-card
+            cards:
+              - type: custom:card-modder
+                card:
+                  type: entity-filter
+                  entities:
+                    - binary_sensor.motion_sensor_158d00036ba01e
+
+                  state_filter:
+                    - 'off'
+                  card:
+                    type: picture-glance
+                    title: Motion sensor Battery
+                    image: /local/lovelace/settings/motion_sensor.jpg
+                style:                 
+                  border-radius: 8px
+
+#######################################################################
+#                                                                     #
+#    Motion Sensor                                                    #
+#                                                                     #
+#######################################################################
+
+  - type: horizontal-stack
+    cards:
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 5px   
+          box-shadow: 2px 2px rgba(0,0,0,0.3)    
+          height: 50px 
+          padding: 1%
+          font-size: 13px
+        card:
+          type: custom:bar-card
+          title_position: 'inside'
+          show_icon: true
+          icon: mdi:thermometer
+          icon_position: 'inside'
+          unit_of_measurement: "%"
+          align: split
+          padding: 4px
+          columns: 1
+          width: 100%
+          severity:                
+          card_style: 
+            border-radius: 5px              
+          entities:
+            - entity: sensor.pergola_motion_sensor_battery
+              title: Pergola Motion Sensor Battery
+              icon: mdi:thermometer
+              severity:
+                - value: 10
+                  color: '#bf4040'
+                - value: 50
+                  color: '#bf9540'
+                - value: 100
+                  color: '#40bf40'                  
+              unit_of_measurement: '%'
+
+## mor battery
+#      - type: 'custom:card-modder'
+#        style:
+#          border-radius: 5px   
+#          box-shadow: 2px 2px rgba(0,0,0,0.3)    
+#          height: 50px 
+#          padding: 1%
+#          font-size: 13px
+#        card:
+#          type: custom:bar-card
+#          title_position: 'inside'
+#          show_icon: true
+#          icon: mdi:thermometer
+#          icon_position: 'inside'
+#          unit_of_measurement: "%"
+#          align: split
+#          padding: 4px
+#          columns: 1
+#          width: 100%
+#          severity:                
+#          card_style: 
+#            border-radius: 5px              
+#          entities:
+#            - entity: sensor.pergola_motion_sensor_battery
+#              title: Pergola Motion Sensor Battery
+#              icon: mdi:thermometer
+#              severity:
+#                - value: 10
+#                  color: '#bf4040'
+#                - value: 50
+#                  color: '#bf9540'
+#                - value: 100
+#                  color: '#40bf40'                  
+#              unit_of_measurement: '%'
+
+##new lime
+#for mor realy line remove this 4 lines
+  - type: horizontal-stack
+    cards:
+      - type: custom:gap-card
+        height: 1
+        width: 1
+
+#  - type: horizontal-stack
+#    cards:
+#      - type: 'custom:card-modder'
+#        style:
+#          border-radius: 5px   
+#          box-shadow: 2px 2px rgba(0,0,0,0.3)    
+#          height: 50px 
+#          padding: 1%
+#          font-size: 13px
+#        card:
+#          type: custom:bar-card
+#          title_position: 'inside'
+#          show_icon: true
+#          icon: mdi:thermometer
+#          icon_position: 'inside'
+#          unit_of_measurement: "%"
+#          align: split
+#          padding: 4px
+#          columns: 1
+#          width: 100%
+#          severity:                
+#          card_style: 
+#            border-radius: 5px              
+#          entities:
+#            - entity: sensor.pergola_motion_sensor_battery
+#              title: Pergola Motion Sensor Battery
+#              icon: mdi:thermometer
+#              severity:
+#                - value: 10
+#                  color: '#bf4040'
+#                - value: 50
+#                  color: '#bf9540'
+#                - value: 100
+#                  color: '#40bf40'                  
+#              unit_of_measurement: '%'
+
+## mor battery
+#      - type: 'custom:card-modder'
+#        style:
+#          border-radius: 5px   
+#          box-shadow: 2px 2px rgba(0,0,0,0.3)    
+#          height: 50px 
+#          padding: 1%
+#          font-size: 13px
+#        card:
+#          type: custom:bar-card
+#          title_position: 'inside'
+#          show_icon: true
+#          icon: mdi:thermometer
+#          icon_position: 'inside'
+#          unit_of_measurement: "%"
+#          align: split
+#          padding: 4px
+#          columns: 1
+#          width: 100%
+#          severity:                
+#          card_style: 
+#            border-radius: 5px              
+#          entities:
+#            - entity: sensor.pergola_motion_sensor_battery
+#              title: Pergola Motion Sensor Battery
+#              icon: mdi:thermometer
+#              severity:
+#                - value: 10
+#                  color: '#bf4040'
+#                - value: 50
+#                  color: '#bf9540'
+#                - value: 100
+#                  color: '#40bf40'                  
+#              unit_of_measurement: '%'
+
+#########################################################################
+#                                                                       #
+#   Titel Door Window Sensor                                            #
+#                                                                       #
+#########################################################################
+
+  - type: vertical-stack
+    cards:
+    
+      - type: entities
+        show_header_toggle: false
+        entities:
+
+          - type: 'custom:text-divider-row'
+            text: Door Window Sensors Battery
+          - type: section
+
+          - type: custom:vertical-stack-in-card
+            cards:
+              - type: custom:card-modder
+                card:
+                  type: entity-filter
+                  entities:
+                    - binary_sensor.door_window_sensor_158d0002b5b57f
+                    - binary_sensor.door_window_sensor_158d0002b832e7
+                    - binary_sensor.door_window_sensor_158d00028b434a
+
+                  state_filter:
+                    - 'off'
+                  card:
+                    type: picture-glance
+                    title: Door Window Sensors Battery
+                    image: /local/lovelace/settings/Door_Window_Sensor_01.jpg
+                style:                 
+                  border-radius: 8px
+
+#######################################################################
+#                                                                     #
+#    Door Window Sensor                                               #
+#                                                                     #
+#######################################################################
+
+  - type: horizontal-stack
+    cards:
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 5px   
+          box-shadow: 2px 2px rgba(0,0,0,0.3)    
+          height: 50px 
+          padding: 1%
+          font-size: 13px
+        card:
+          type: custom:bar-card
+          title_position: 'inside'
+          show_icon: true
+          icon: mdi:thermometer
+          icon_position: 'inside'
+          unit_of_measurement: "%"
+          align: split
+          padding: 4px
+          columns: 1
+          width: 100%
+          severity:                
+          card_style: 
+            border-radius: 5px              
+          entities:
+            - entity: sensor.front_door_sensor_battery
+              title: Front Door Battery
+              icon: mdi:thermometer
+              severity:
+                - value: 10
+                  color: '#bf4040'
+                - value: 50
+                  color: '#bf9540'
+                - value: 100
+                  color: '#40bf40'                  
+              unit_of_measurement: '%'
+
+## mor battery
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 5px   
+          box-shadow: 2px 2px rgba(0,0,0,0.3)    
+          height: 50px 
+          padding: 1%
+          font-size: 13px
+        card:
+          type: custom:bar-card
+          title_position: 'inside'
+          show_icon: true
+          icon: mdi:thermometer
+          icon_position: 'inside'
+          unit_of_measurement: "%"
+          align: split
+          padding: 4px
+          columns: 1
+          width: 100%
+          severity:                
+          card_style: 
+            border-radius: 5px              
+          entities:
+            - entity: sensor.back_door_sensor_battery
+              title: Back Door Battery
+              icon: mdi:thermometer
+              severity:
+                - value: 10
+                  color: '#bf4040'
+                - value: 50
+                  color: '#bf9540'
+                - value: 100
+                  color: '#40bf40'                  
+              unit_of_measurement: '%'
+##new lime
+  - type: horizontal-stack
+    cards:
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 5px   
+          box-shadow: 2px 2px rgba(0,0,0,0.3)    
+          height: 50px 
+          padding: 1%
+          font-size: 13px
+        card:
+          type: custom:bar-card
+          title_position: 'inside'
+          show_icon: true
+          icon: mdi:thermometer
+          icon_position: 'inside'
+          unit_of_measurement: "%"
+          align: split
+          padding: 4px
+          columns: 1
+          width: 100%
+          severity:                
+          card_style: 
+            border-radius: 5px              
+          entities:
+            - entity: sensor.kitchen_window_sensor_battery
+              title: Kitchen Window Battery
+              icon: mdi:thermometer
+              severity:
+                - value: 10
+                  color: '#bf4040'
+                - value: 50
+                  color: '#bf9540'
+                - value: 100
+                  color: '#40bf40'                  
+              unit_of_measurement: '%'
+
+
+
+############################################################################
+#                                                                          #
+#   Titel Ring                                                             #
+#                                                                          #
+############################################################################
+
+  - type: vertical-stack
+    cards:
+    
+      - type: entities
+        show_header_toggle: false
+        entities:
+
+          - type: 'custom:text-divider-row'
+            text: Ring Battery
+          - type: section
+
+          - type: custom:vertical-stack-in-card
+            cards:
+              - type: custom:card-modder
+                card:
+                  type: entity-filter
+                  entities:
+                    - sensor.ring_front_door_battery
+                    - sensor.ring_front_door_last_activity
+                    - sensor.ring_front_door_last_ding
+
+                  state_filter:
+                    - 'off'
+                  card:
+                    type: picture-glance
+                    title: Ring Battery
+                    image: /local/lovelace/settings/ring.jpg
+                style:                 
+                  border-radius: 8px
+
+#######################################################################
+#                                                                     #
+#    Ring                                                             #
+#                                                                     #
+#######################################################################
+
+  - type: horizontal-stack
+    cards:
+      - type: 'custom:card-modder'
+        style:
+          border-radius: 5px   
+          box-shadow: 2px 2px rgba(0,0,0,0.3)    
+          height: 50px 
+          padding: 1%
+          font-size: 13px
+        card:
+          type: custom:bar-card
+          title_position: 'inside'
+          show_icon: true
+          icon: mdi:thermometer
+          icon_position: 'inside'
+          unit_of_measurement: "%"
+          align: split
+          padding: 4px
+          columns: 1
+          width: 100%
+          severity:                
+          card_style: 
+            border-radius: 5px              
+          entities:
+            - entity: sensor.ring_front_door_battery
+              title: Ring Battery
+              icon: mdi:thermometer
+              severity:
+                - value: 10
+                  color: '#bf4040'
+                - value: 50
+                  color: '#bf9540'
+                - value: 100
+                  color: '#40bf40'                  
+              unit_of_measurement: '%'

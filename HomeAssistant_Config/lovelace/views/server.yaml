@@ -1,0 +1,471 @@
+title: Server
+path: server
+icon: mdi:server    
+cards:
+
+
+#################################################################
+#                                                               #
+#   Internet Card                                               #
+#                                                               #
+#################################################################
+
+  - type: vertical-stack
+    cards:
+      - type: entities
+        show_header_toggle: off
+        entities:
+        
+          - type: 'custom:text-divider-row'
+            text: Internet Status
+          - type: section
+
+          - type: custom:decluttering-card
+            template: graph
+            variables:
+                - entity: sensor.speedtest_ping
+                - name: Ping
+                - height: 20
+                - line_width: 2
+                - font_size: 70
+                - hours_to_show: 168
+                - points_per_hour: 1            
+                - show_extrema: true
+                - show_fill: true 
+                - graph: bar
+                - value: 25
+                - color: "#FFFF00"
+                - value: 0
+                - color: "#3498db"
+            
+          - type: custom:vertical-stack-in-card
+            cards:
+
+              - type: horizontal-stack
+                cards:
+                
+                  - type: custom:decluttering-card
+                    template: graph
+                    variables:
+                        - entity: sensor.speedtest_download
+                        - name: Download
+                        - height: 50
+                        - line_width: 2
+                        - font_size: 70
+                        - hours_to_show: 168
+                        - points_per_hour: 1                  
+                        - show_extrema: true
+                        - show_fill: true
+                        - value_1: 0
+                          color_value_1: "#FFFF00"
+                        - value_2: 40
+                          color_value_2: "#3498db" 
+
+                  - type: custom:decluttering-card
+                    template: graph
+                    variables:
+                        - entity: sensor.speedtest_upload
+                        - name: Upload
+                        - height: 50
+                        - line_width: 2
+                        - font_size: 70
+                        - hours_to_show: 168
+                        - points_per_hour: 1                  
+                        - show_extrema: true
+                        - show_fill: true 
+                        - value_1: 0
+                          color_value_1: #FFFF00 
+                        - value_2: 13
+                          color_value_2: #3498db
+
+          - type: custom:gap-card
+            height: 5
+            size: 
+#################################################################
+#                                                               #
+#   System Status                                               #
+#                                                               #
+#################################################################
+
+  - type: vertical-stack
+    cards:
+      - type: entities
+        show_header_toggle: off
+        entities:
+        
+          - type: 'custom:text-divider-row'
+            text: System Status
+          - type: section
+
+          - type: custom:bar-card
+            title: SSL Certificate Expierd in
+            entity: sensor.ssl_checker_certificate
+            title_position: inside
+            align: center
+            padding: 4px
+            card_style: 
+              border-radius: 5px
+            max: 100
+            severity:
+            - value: 20
+              color: '#bf4040'
+            - value: 40
+              color: '#1db954'
+            - value: 65
+              color: '#bf9540'
+            unit_of_measurement: 'Days'
+           
+          - type: custom:vertical-stack-in-card
+            cards:
+
+              - type: horizontal-stack
+                cards:
+                ## Memory
+                  - type: 'custom:flex-horseshoe-card'
+                    entities:
+                      - entity: sensor.memory_use_percent
+                        decimals: 0
+                        icon: mdi:memory
+                        name: 'RAM Usage'
+                        area: RAM
+                      - entity: sensor.memory_use
+                        decimals: 0
+                        name: '(In Use)'
+                      - entity: sensor.memory_free
+                        decimals: 0
+                        name: '(free)'
+
+                    show:
+                      scale_tickmarks: true
+                    layout:
+                      hlines:
+                        - id: 0
+                          xpos: 50
+                          ypos: 38
+                          length: 40
+                          styles:
+                            - stroke: var(--primary-text-color);
+                            - stroke-width: 5;
+                            - opacity: 0.9;
+                            - stroke-linecap: round;
+                          color: '#FFF6E3'
+                      vlines:
+                        - id: 0
+                          xpos: 50
+                          ypos: 56
+                          length: 20
+                          styles:
+                            - stroke: var(--primary-text-color);
+                            - opacity: 0.5;
+                            - stroke-width: 2;
+                            - stroke-linecap: round;
+                      states:
+                        - id: 0
+                          entity_index: 0
+                          xpos: 50
+                          ypos: 30
+                          styles:
+                            - font-size: 3em;
+                            - opacity: 0.9;
+                        - id: 1
+                          entity_index: 1
+                          xpos: 46
+                          ypos: 54
+                          styles:
+                            - font-size: 1.5em;
+                            - text-anchor: end;
+                        - id: 2
+                          entity_index: 2
+                          xpos: 54
+                          ypos: 54
+                          styles:
+                            - font-size: 1.5em;
+                            - text-anchor: start;
+                      names:
+                        - id: 0
+                          entity_index: 0
+                          xpos: 50
+                          ypos: 100
+                          styles:
+                            - font-size: 1.2em;
+                        - id: 1
+                          entity_index: 1
+                          xpos: 46
+                          ypos: 62
+                          styles:
+                            - font-size: 0.8em;
+                            - text-anchor: end;
+                            - opacity: 0.7;
+                        - id: 2
+                          entity_index: 2
+                          xpos: 54
+                          ypos: 62
+                          styles:
+                            - font-size: 0.8em;
+                            - text-anchor: start;
+                            - opacity: 0.7;
+                      areas:
+                        - id: 0
+                          entity_index: 0
+                          xpos: 50
+                          ypos: 85
+                          styles:
+                            - font-size: 1.2em;
+
+                    horseshoe_state:
+                      color:  '#FFF6E3'
+                    horseshoe_scale:
+                      min: 0
+                      max: 100
+                      color: 'var(--primary-background-color)'
+                      width: 6
+                    color_stops:
+                      0: '#FFF6E3'
+                      10: '#FFE9B9'
+                      20: '#FFDA8A'
+                      30: '#FFCB5B'
+                      40: '#FFBF37'
+                      50: '#ffb414'
+                      60: '#FFAD12'
+                      70: '#FFA40E'
+                      80: '#FF9C0B' 
+                      90: '#FF8C06' 
+
+            ##disk
+                  - type: 'custom:flex-horseshoe-card'
+                    entities:
+                      - entity: sensor.disk_use
+                        decimals: 1
+                        icon: mdi:harddisk
+                        name: 'Disk Usage'
+                        area: Disk
+                      - entity: sensor.disk_use_percent
+                        decimals: 1
+                      - entity: sensor.disk_free
+                        decimals: 1
+
+                    scaleTickSize: 50
+                    show:
+                      scale_tickmarks: true
+
+                    layout:
+                      icons:
+                        - id: 0
+                          entity_index: 0
+                          xpos: 50
+                          ypos: 20
+                          size: 3
+                      hlines:
+                        - id: 0
+                          xpos: 50
+                          ypos: 48
+                          length: 80
+                          styles:
+                            - opacity: 0.5;
+                      circles:
+                        - id: 0
+                          xpos: 50
+                          ypos: 61
+                          radius: 3
+                          styles:
+                            - fill : var(--primary-text-color);
+                            - opacity: 0.5;
+                      states:
+                        - id: 0
+                          entity_index: 0
+                          xpos: 50
+                          ypos: 40
+                          styles:
+                            - font-size: 3em;
+                            - opacity: 0.9;
+                        - id: 0
+                          entity_index: 1
+                          xpos: 46
+                          ypos: 64
+                          styles:
+                            - font-size: 1.7em;
+                            - text-anchor: end;
+                        - id: 2
+                          entity_index: 2
+                          xpos: 54
+                          ypos: 64
+                          styles:
+                            - font-size: 1.7em;
+                            - text-anchor: start;
+                      names:
+                        - id: 0
+                          entity_index: 0
+                          xpos: 50
+                          ypos: 100
+                      areas:
+                        - id: 0
+                          entity_index: 0
+                          xpos: 50
+                          ypos: 80
+                    horseshoe_scale:
+                      min: 0
+                      max: 215
+                    color_stops:
+                      0: '#FFF6E3'
+                      215: '#FF8C06'
+
+            ## cpu
+                  - type: 'custom:flex-horseshoe-card'
+                    
+                    entities:
+                      - entity: sensor.processor_use
+                        decimals: 0
+                        icon: mdi:memory
+                        name: 'CPU Load'
+                        area: CPU
+                      - entity: sensor.load_1m
+                        decimals: 2
+                        unit: '1m'
+                      - entity: sensor.load_5m
+                        decimals: 2
+                        unit: '5m'
+
+                    show:
+                      scale_tickmarks: true
+                    layout:
+                      hlines:
+                        - id: 0
+                          xpos: 50
+                          ypos: 38
+                          length: 40
+                          styles:
+                            - stroke: var(--primary-text-color);
+                            - stroke-width: 5;
+                            - opacity: 0.9;
+                            - stroke-linecap: round;
+                          color: '#FFF6E3'
+                      vlines:
+                        - id: 0
+                          xpos: 50
+                          ypos: 56
+                          length: 20
+                          styles:
+                            - stroke: var(--primary-text-color);
+                            - opacity: 0.5;
+                            - stroke-width: 2;
+                            - stroke-linecap: round;
+                      states:
+                        - id: 0
+                          entity_index: 0
+                          xpos: 50
+                          ypos: 30
+                          styles:
+                            - font-size: 3em;
+                            - opacity: 0.9;
+                        - id: 1
+                          entity_index: 1
+                          xpos: 46
+                          ypos: 54
+                          styles:
+                            - font-size: 1.5em;
+                            - text-anchor: end;
+                        - id: 2
+                          entity_index: 2
+                          xpos: 54
+                          ypos: 54
+                          styles:
+                            - font-size: 1.5em;
+                            - text-anchor: start;
+                      names:
+                        - id: 0
+                          entity_index: 0
+                          xpos: 50
+                          ypos: 100
+                          styles:
+                            - font-size: 1.2em;
+                        - id: 1
+                          entity_index: 1
+                          xpos: 46
+                          ypos: 62
+                          styles:
+                            - font-size: 0.8em;
+                            - text-anchor: end;
+                            - opacity: 0.7;
+                        - id: 2
+                          entity_index: 2
+                          xpos: 54
+                          ypos: 62
+                          styles:
+                            - font-size: 0.8em;
+                            - text-anchor: start;
+                            - opacity: 0.7;
+                      areas:
+                        - id: 0
+                          entity_index: 0
+                          xpos: 50
+                          ypos: 85
+                          styles:
+                            - font-size: 1.2em;
+
+                    horseshoe_state:
+                      color:  '#FFF6E3'
+                    horseshoe_scale:
+                      min: 0
+                      max: 100
+                      color: 'var(--primary-background-color)'
+                      width: 6
+                    color_stops:
+                      0: '#FFF6E3'
+                      10: '#FFE9B9'
+                      20: '#FFDA8A'
+                      30: '#FFCB5B'
+                      40: '#FFBF37'
+                      50: '#ffb414'
+                      60: '#FFAD12'
+                      70: '#FFA40E'
+                      80: '#FF9C0B' 
+                      90: '#FF8C06' 
+
+## spacer
+          - type: custom:gap-card
+            height: 5
+            size: 
+############################################################################
+#                                                                          #
+#   Database                                                               #
+#                                                                          #
+############################################################################
+
+  - type: vertical-stack
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+
+          - type: 'custom:text-divider-row'
+            text: Database Info
+          - type: section
+
+          - type: custom:decluttering-card
+            template: database_graph
+            variables:
+                - entity: sensor.hass_db_size
+                - name: DB Size
+                - icon: mdi:database  
+
+#              - type: horizontal-stack
+#                cards:
+#                  - type: horizontal-stack
+#                    cards:
+#                      - type: custom:decluttering-card
+#                        template: database_graph
+#                        variables:
+#                            - entity: sensor.hass_db_size
+#                            - name: Events
+#                            - icon: mdi:database  
+#                            - color: orange
+                            
+#                      - type: custom:decluttering-card
+#                        template: database_graph
+#                        variables:
+#                            - entity: sensor.hass_db_size
+#                            - name: States
+#                            - icon: mdi:database
+#                            - color: green
+          # - type: "custom:button-card"
+          #   color_type: blank-card   

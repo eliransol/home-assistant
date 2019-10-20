@@ -1,0 +1,28 @@
+resources:
+  !include lovelace/resources/resources.yaml
+
+#################################################################
+#  Templates                                                    #
+#################################################################
+
+#For Samsung Notte desig
+decluttering_templates:
+  !include lovelace/decluttering_templates/decluttering_templates.yaml
+
+  
+#################################################################
+#  CCH Custom Header                                            #
+#################################################################
+cch:
+  !include lovelace/cch/compact-custom-header.yaml 
+ 
+title: SoloHome
+background: var(--background-image)
+views:
+  - !include lovelace/views/home.yaml
+  - !include lovelace/views/lights.yaml
+  - !include lovelace/views/security.yaml
+  - !include lovelace/views/camera.yaml
+  - !include lovelace/views/remote.yaml
+  - !include lovelace/views/battery.yaml
+  - !include lovelace/views/server.yaml 
